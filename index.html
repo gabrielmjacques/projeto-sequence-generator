@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Sena Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+        <div class="imgContainer">
+            <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossless,ret_img,w_1119,h_313/https://www.acre.com.br/wp-content/uploads/2018/06/banner-baner-mega-sena.png"
+                alt="">
+        </div>
+
+        <div class="content">
+            <h1>Gerador de Números da Mega Sena</h1>
+
+            <h4 class="result">Os Número Apareceram Aqui</h4>
+            <input class="resultInput" type="button" value="Clique Aqui Para Gerar Números">
+        </div>
+    </main>
+
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+<script>
+
+    $(function ()
+    {
+
+        const result = $('.result')
+        const resultInput = $('.resultInput')
+
+        resultInput.click(function ()
+        {
+            console.clear()
+            result.text('')
+
+            let values = []
+
+
+            for (let i = 0; i < 6; i++)
+            {
+
+                do
+                {
+                    var randomNumber = Math.round(Math.random() * 99)
+
+                    console.log('repetiu');
+                } while (values.indexOf(randomNumber) >= 0 || randomNumber == 0)
+
+
+                values.push(randomNumber)
+            }
+
+            result.text(values.join(' - '))
+
+        })
+
+    })
+
+</script>
+
+</html>
